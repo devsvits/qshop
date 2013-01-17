@@ -1,0 +1,126 @@
+release yum lock
+----------------------
+su -c 'rm /var/run/yum.pid'
+
+
+table_categories_level_0 
+--------------------
+category_id		CHAR(3)  PRIMARY KEY, NOT NULL
+category_name		VARCHAR(32)
+
+table_categories_level_1
+---------------------
+sub_category_id		CHAR(3)    PRIMARY KEY, NOT NULL
+sub_category_name	VARCHAR(32)
+category_id		CHAR(3)
+
+table_categories_level_2
+---------------------
+sub_sub_category_id	CHAR(3)
+sub_sub_category_name	VARCHAR(32)
+sub_category_id		CHAR(3)
+
+table_brand
+------------------
+brand_id		CHAR(5)
+brand_name		VARCHAR(32)
+
+
+table_product
+----------------------
+product_id		CHAR(6)
+product_name		VARCHAR(32)
+product_description	VARCHAR(64)
+product_image		MEDIUMBLOB	
+product_mrp		DECIMAL (10,2)
+product_sell_price	DECIMAL (10,2)
+product_stock		INT UNSIGNED
+category_id		CHAR(3)
+brand_id		CHAR(5)
+
+
+table_order
+--------------
+order_id
+order_datetime
+ordr_value
+order_paymentmode
+order_status
+order_delivery_employee_id
+order_delivery_datetime
+customer_id
+
+
+table_order_item
+-----------------
+sn
+order_id
+product_id
+product_mrp
+product_sell_price
+order_quantity
+
+
+table_customer
+---------------
+customer_id
+cusomer_email
+customer_mobile
+customer_name
+customer_address
+customer_city
+customer_pin
+customer_dob
+customer_ismale
+
+
+table_employee
+-----------------
+employee_id
+employee_name
+employee_designation
+employee_email
+employee_mobile
+employee_address
+employee_city
+employee_pin
+employee_dob
+employee_ismale
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+Category_list
+---------------------------------------------------------------------------------------------------------------------------------
+Edible Oil
+Dry Fruits
+Pooja needs
+Dal
+Rice
+Maida, Suji, Besan
+Tea & Coffee
+salt & Sugar
+Cloley, Rajma, chana
+
+Oral Care
+Hair Care
+Shaving needs
+Baby Care
+Detergents
+
+Deo
+
+Maggi, Noodles and Pasta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
