@@ -10,7 +10,7 @@ category_name		VARCHAR(32)
 
 table_categories_level_1
 ---------------------
-sub_category_id		CHAR(3)    PRIMARY KEY, NOT NULL
+sub_category_id		CHAR(6)    PRIMARY KEY, NOT NULL
 sub_category_name	VARCHAR(32)
 category_id		CHAR(3)
 
