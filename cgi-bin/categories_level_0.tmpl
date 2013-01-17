@@ -1,14 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("http://localhost/demo_test.txt");
+  });
+});
+</script>
+</head>
+<body>
+
 <table>
 	
 	<TMPL_LOOP NAME="DB_LOOP">
 	
     	<a HREF = "<TMPL_VAR NAME="URL">"> <TMPL_VAR NAME="clientName">	</a>
-		&nbsp;
+		&nbsp;|
 	</TMPL_LOOP> 
 
 </table>
 
 <HR>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
+
+</body>
+</html>
+
+
+
 
 
 
