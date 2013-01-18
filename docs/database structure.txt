@@ -28,14 +28,14 @@ brand_name		VARCHAR(32)
 
 table_product
 ----------------------
-product_id		CHAR(6)
+product_id		CHAR(10)
 product_name		VARCHAR(32)
 product_description	VARCHAR(64)
 product_image		MEDIUMBLOB	
 product_mrp		DECIMAL (10,2)
 product_sell_price	DECIMAL (10,2)
 product_stock		INT UNSIGNED
-category_id		CHAR(3)
+sub_cate_id		CHAR(6)
 brand_id		CHAR(5)
 
 
