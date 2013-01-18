@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+<script src="http://localhost/ajax/libs/jquery/1.8.3/jquery.min.js">
 </script>
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
+  $("#12").click(function(){
     $("#div1").load("http://localhost/demo_test.txt");
   });
 });
+
+
+$(document).ready(function(){
+  $("#11").click(function() { 
+
+      $.ajax({
+        type: "GET",
+        url: "http://localhost/cgi-bin/categories_level_1.pl", // URL of the Perl script
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        // send username and password as parameters to the Perl script
+        //data: "username=" + username + "&password=" + password,
+        // script call was *not* successful
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+          $('div#loginResult').text("responseText: " + XMLHttpRequest.responseText 
+            + ", textStatus: " + textStatus 
+            + ", errorThrown: " + errorThrown);
+          $('div#loginResult').addClass("error");
+        }, // error 
+        // script call was successful 
+        // data contains the JSON values returned by the Perl script 
+        success: function(data){
+          if (data.error) { // script returned error
+            $('div#loginResult').text("data.error: " + data.error);
+            $('div#loginResult').addClass("error");
+          } // if
+          else { // login was successful
+            //$('form#loginForm').hide();
+            $('div#loginResult').text("data.success: " + data.success + ", data.userid: " + data.userid);
+            //$('div#loginResult').addClass("success");
+          } //else
+        } // success
+      }); // ajax
+
+  }); 
+}); 
+
 </script>
 </head>
 <body>
@@ -23,11 +60,56 @@ $(document).ready(function(){
 
 </table>
 
+
+<HR>
+    
+	
+	
+	
+	<table>
+		<TMPL_LOOP NAME="DB_LOOP2">
+			
+			
+			<center>
+			<H1><TMPL_VAR NAME="sub_cate_name"></H1>
+			</center>
+			<TMPL_LOOP NAME="product_loop">
+			
+				
+				<TMPL_VAR NAME="product_name">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ||
+				
+				
+			</TMPL_LOOP>
+			
+		</TMPL_LOOP>
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
 <HR>
 
 <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
-<button>Get External Content</button>
+<button id="11">Get External Content</button>
+<button id="12">  devesh </button>
 
+<h2> Client example </h2>
+  <h3>Output: </h3>
+  <div id="loginResult">this element will be accessed by jquery and this text replaced</div>
+
+
+    
+  
+  
 </body>
 </html>
 
