@@ -45,11 +45,9 @@ while (my @data = $statement->fetchrow_array())
 	my %row_data; # get a fresh hash for row data
 
 	
+
 	$row_data {clientName} = $data[1]; 	
 	$row_data {URL}="http://localhost/cgi-bin/categories_level_0.pl?category_id=$data[0]";
-
-	
-
 	push (@loop_data, \%row_data)	;
 	#print $data[1];
 }
